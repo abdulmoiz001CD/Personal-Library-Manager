@@ -10,7 +10,7 @@ def load_library():
     if os.path.exists(library_file):
         with open(library_file,'r') as f:
             library = json.load(f)
-            
+
 def save_library():
     with open(library_file,'w') as f:
         json.dump(library,f)
@@ -23,6 +23,7 @@ def add():
     library.append({"title": title, "author": author})
     save_library()  # Save the library after adding a book
     click.echo(f"Book added: {title} by {author}")
+
 
 @click.command()
 def remove():
@@ -58,7 +59,6 @@ def display():
 
 @click.command()
 def main():
-    """Welcome to My Personal Library Manager"""
     load_library()  # Load the library at the start
     while True:
         click.echo("\n📖 Welcome to your Personal Library Manager!")
